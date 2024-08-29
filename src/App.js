@@ -12,6 +12,7 @@ import CreatorLayout from './views/creator/layout';
 import GeneralLayout from './views/layout';
 import ResetPassword from './views/creator/auth/reset_password';
 import AdminLogin from './views/admin/auth/login';
+import ViewPoll from './views/poll/view_poll';
 
 function App() {
   const [isAuth, setIsAuth] = useState(false);
@@ -47,6 +48,7 @@ function App() {
               <Route path='/forgot-password' element={<ForgotPassword />} />
               <Route path='/reset-password/:token' element={<ResetPassword />} />
               <Route path='/admin/login' element={<AdminLogin setIsAuth={setIsAuth} setAuth={setAuth} />} />
+              <Route path='/poll/:pollId' element={<ViewPoll />} />
             </>
           )}
 

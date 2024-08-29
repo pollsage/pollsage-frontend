@@ -26,6 +26,24 @@ const createPollValidation = (payload) => {
     }
 };
 
+const submitPollValidation = (payload, requireName) => {
+    try {
+        let errors = {}
+        if (isEmpty(payload.optionId)) {
+            errors.optionId = "Please select an option";
+        }
+
+        if (requireName && isEmpty(payload.name)) {
+            errors.name = "Name is required"
+        }
+
+        return { errors, isValid: isEmpty(errors) }
+    } catch (e) {
+        return { errors: e, isValid: false }
+    }
+}
+
 export {
-    createPollValidation
+    createPollValidation,
+    submitPollValidation
 }

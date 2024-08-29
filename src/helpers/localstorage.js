@@ -77,3 +77,8 @@ export const deleteAuthToken = () => {
         console.log(e.message);
     }
 }
+
+export const setLocalStorage = (key, value) => {
+    localStorage.setItem(key, value);
+    return true;
+}
