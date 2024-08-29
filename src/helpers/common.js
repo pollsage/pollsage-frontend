@@ -37,6 +37,10 @@ export const getAPIResponseError = (e) => {
     return;
 }
 
+export const shuffleArray = (array) => {
+    return array.sort(() => Math.random() - 0.5)
+}
+
 export const formattedDateFromNow = (timestamp) => {
     return moment(timestamp).fromNow();
 };
