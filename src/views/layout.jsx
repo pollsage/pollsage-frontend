@@ -6,6 +6,7 @@ import ContactUs from './contact_us';
 import Privacy from './privacy';
 import Terms from './terms';
 import Contributors from './app/contributors';
+import NotFound from './404';
 
 export default function GeneralLayout() {
     return (
@@ -18,7 +19,7 @@ export default function GeneralLayout() {
                     <Route path='/privacy' element={<Privacy />} />
                     <Route path='/terms' element={<Terms />} />
                     <Route path="/contributors" element={<Contributors />} />
-
+                    <Route path='*' element={<NotFound />} />
                 </Routes>
             </main>
         </div>

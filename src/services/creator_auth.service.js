@@ -24,6 +24,15 @@ const creatorLogin = async (payload) => {
     }
 }
 
+const verifyToken = async (token) => {
+    try {
+        let res = api.post(`creators/auth/verify/${token}`)
+        return (await res).data
+    } catch (e) {
+        throw getAPIResponseError(e)
+    }
+}
+
 const setLoginToken = (data) => {
     saveToken(data);
     const decoded = jwtDecode(data)
@@ -59,5 +68,6 @@ export {
     creatorLogin,
     creatorForgetPassword,
     creatorResetPassword,
+    verifyToken,
     logout,
 }

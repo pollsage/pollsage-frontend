@@ -7,6 +7,8 @@ import CreateTheme from './themes/create';
 import Dashboard from './dashboard';
 import PollList from './poll/list';
 import EditPoll from './poll/edit';
+import PollResult from '../poll/poll_result';
+import CommentsByPoll from './comments/list-by-poll';
 export default function CreatorLayout() {
     return (
         <div x-data="setup()">
@@ -19,9 +21,9 @@ export default function CreatorLayout() {
                         <Route path='/polls/create' element={<CreatePoll />} />
                         <Route path='/edit-poll/:pollId' element={<EditPoll />} />
                         <Route path='/polls' element={<PollList />} />
+                        <Route path='/poll-result/:pollId' element={<PollResult />} />
+                        <Route path='/poll-comments/:pollId' element={<CommentsByPoll />} />
 
-
-                        
                         <Route path='/themes/create' element={<CreateTheme />} />
                     </Routes>
                 </div>

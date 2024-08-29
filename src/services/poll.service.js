@@ -35,9 +35,19 @@ const submitPoll = async (pollId, payload) => {
     }
 }
 
+const getPollResult = async (pollId, data) => {
+    try {
+        let res = await api.get(`/polls/result/${pollId}`)
+        return res.data
+    } catch (e) {
+        throw getAPIResponseError(e)
+    }
+}
+
 export {
     submitPoll,
     getPollByPollId,
     checkPasswordProtection,
+    getPollResult,
 
 }

@@ -13,6 +13,9 @@ import GeneralLayout from './views/layout';
 import ResetPassword from './views/creator/auth/reset_password';
 import AdminLogin from './views/admin/auth/login';
 import ViewPoll from './views/poll/view_poll';
+import EmailVerification from './views/creator/auth/email_verification';
+import PollResult from './views/poll/poll_result';
+import NotFound from './views/404';
 
 function App() {
   const [isAuth, setIsAuth] = useState(false);
@@ -46,11 +49,14 @@ function App() {
               <Route path='/login' element={<Login setIsAuth={setIsAuth} />} />
               <Route path='/register' element={<Register />} />
               <Route path='/forgot-password' element={<ForgotPassword />} />
+              <Route path='/verify/:token' element={<EmailVerification />} />
               <Route path='/reset-password/:token' element={<ResetPassword />} />
               <Route path='/admin/login' element={<AdminLogin setIsAuth={setIsAuth} setAuth={setAuth} />} />
-              <Route path='/poll/:pollId' element={<ViewPoll />} />
+              <Route path='/404' element={<NotFound />} />
             </>
           )}
+          <Route path='/results/:pollId' element={<PollResult />} />
+          <Route path='/poll/:pollId' element={<ViewPoll />} />
 
           {/* Authenticated Routes */}
           {isAuth && auth && auth.user && (
